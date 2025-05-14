@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,13 +5,68 @@
   <meta name="viewport" content="width=device-width">
   <title>Image and Sound Demo</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .page {
+      display: none;
+      padding: 40px;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .main-image {
+      max-width: 80%;
+      height: auto;
+    }
+
+    .btn {
+      font-size: 20px;
+      padding: 15px 30px;
+      cursor: pointer;
+      margin-top: 100px;
+    }
+
+    .message {
+      color: red;
+      font-size: 24px;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
+
+  <!-- Landing Page -->
+  <div id="landing-page" class="page active">
+    <h1>Click for Notes</h1>
+    <button class="btn" onclick="startApp()">Enter</button>
+  </div>
+
+  <!-- Main Page -->
+  <div id="main-page" class="page">
     <img src="babba.jpg" alt="Your Image" class="main-image">
     <h1 class="message">babba madarchod</h1>
     <audio id="background-sound" src="tain_tain_to_tu.mp3"></audio>
   </div>
-  <script src="script.js"></script>
+
+  <script>
+    function startApp() {
+      // Switch pages
+      document.getElementById('landing-page').classList.remove('active');
+      document.getElementById('main-page').classList.add('active');
+
+      // Play sound
+      const audio = document.getElementById('background-sound');
+      audio.play().catch(e => console.log("Autoplay blocked:", e));
+    }
+  </script>
+
 </body>
 </html>
+
