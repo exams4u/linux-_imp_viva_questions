@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Image and Sound Demo</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+
   <style>
     body {
       font-family: sans-serif;
@@ -57,16 +57,13 @@
 
   <script>
     function startApp() {
-      // Switch pages
       document.getElementById('landing-page').classList.remove('active');
       document.getElementById('main-page').classList.add('active');
 
-      // Play sound
       const audio = document.getElementById('background-sound');
-      audio.play().catch(e => console.log("Autoplay blocked:", e));
+      audio.play().catch(e => console.log("Audio play blocked by browser:", e));
     }
   </script>
 
 </body>
 </html>
-
